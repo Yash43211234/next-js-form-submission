@@ -1,29 +1,39 @@
 
 "use client";
 import "./about.css";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function About() {
-  return (
-    <div className="about-container">
-      <section className="hero">
-        <h1>Welcome to Our Company</h1>
-        <p>We create amazing web experiences using Next.js!</p>
-      </section>
 
-      <section className="cards">
-        <div className="card">
-          <h2>Our Mission</h2>
-          <p>Deliver high-quality web apps that make life easier for everyone.</p>
-        </div>
-        <div className="card">
-          <h2>Our Vision</h2>
-          <p>Innovate continuously and stay ahead in the tech world.</p>
-        </div>
-        <div className="card">
-          <h2>Our Team</h2>
-          <p>A group of passionate developers, designers, and thinkers.</p>
-        </div>
-      </section>
-    </div>
+   const router = useRouter();
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("loggedIn");
+    if (!loggedIn) {
+      // Redirect to home/login if not logged in
+      router.push("/");
+    }
+  }, [router]);
+
+  return (
+   <div className="about-container">
+  {/* Hero Section */}
+ 
+  {/* Special Note */}
+  <section className="note">
+    <h2>My Special Note for You</h2>
+    <p>
+       💖 Dear Garima 💖, <br />
+      As you start this exciting new journey in <strong>Bangalore</strong>, I want you to know how proud I am of you. Moving to a new city and chasing your dreams takes courage — and you have it in abundance. <br />
+      I know you are searching for a job there, and I have no doubt that your talent, determination, and positivity will open the right doors. <br />
+      Embrace this adventure, make new friends, explore the city, and always trust yourself. I’m cheering for you every single moment. 💖
+    </p>
+
+    {/* Signature */}
+    <p className="signature">— Yashwant</p>
+  </section>
+</div>
+
   );
 }

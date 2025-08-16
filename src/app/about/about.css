@@ -1,55 +1,158 @@
+/* Container for the About page */
 .about-container {
-  font-family: Arial, sans-serif;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  background: #ffe6f0; /* Soft pink background */
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
   color: #333;
-  padding: 20px;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 10px;
   margin-bottom: 40px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  color: #ff3366;
+  text-shadow: 2px 2px 12px rgba(255, 51, 102, 0.5);
+  margin-bottom: 15px;
+  animation: popIn 1s ease-out;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 1.5rem;
+  color: #ff6699;
+  animation: fadeIn 2s ease-in;
 }
 
-/* Cards Section */
+/* Special Note Section */
+.note {
+  background: #fff0f6;
+  padding: 35px 25px;
+  border-radius: 25px;
+  margin: 50px auto;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(255, 102, 153, 0.3);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.note h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff3366;
+}
+
+.note p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Signature Styling */
+.signature {
+  margin-top: 25px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: right;
+  color: #ff3366;
+  font-size: 1.2rem;
+  animation: fadeInSignature 2s ease-in forwards;
+  animation-delay: 1.5s;
+}
+
+/* Cards Section (optional if you want cards too) */
 .cards {
   display: flex;
-  gap: 20px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
 }
 
 .card {
-  background: #f3f3f3;
-  padding: 20px;
+  background: #fff0f6;
+  padding: 25px;
+  border-radius: 20px;
   width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 102, 153, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(255, 102, 153, 0.5);
 }
 
 .card h2 {
+  color: #ff3366;
   margin-bottom: 10px;
-  color: #0070f3;
 }
 
 .card p {
-  font-size: 14px;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSignature {
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Floating Hearts Background */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff3366;
+  transform: rotate(45deg);
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff3366;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -10px;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+  100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .note { padding: 25px 15px; border-radius: 20px; }
+  .note h2 { font-size: 1.6rem; }
+  .note p { font-size: 1rem; }
+  .signature { font-size: 1rem; }
+  .card { width: 200px; }
 }

@@ -3,7 +3,7 @@ export async function POST(req) {
   const { email, password } = body;
 
   // simple validation (demo only)
-  if (email === "admin@example.com" && password === "12345") {
+  if (email === "garimakashyap9191@gmail.com" && password === "yashwant") {
     return new Response(JSON.stringify({ message: "Login successful!" }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
